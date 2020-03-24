@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Jose David Sanabria,Deivid Toloza Ortiz">
+  <script  src= "datos.js"></script>
+  <title>LANDGAMES</title>
+  <link rel="icon" type="image/icon" href="imagenes/icono.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="contenedor">
+
+    <div id="header">
+      <section id="head">
+        <header>
+          <p><img src="imagenes/Land.png" id="logo-land"></p>
+		    <P><br><img src="imagenes/games.png" id="logo-games"></p>
+        </header>
+		<nav>
+		<input type="text" name="nombre" placeholder="Nombre" id="lbName">
+        <input type=password name="Contraseña" placeholder="Contraseña" id="lbPass">
+		<input type="submit" name="add" value="Registrarse" id="btnAg" onclick="agregar()">
+		<input type="submit" name="com" value="Iniciar" id="btnName" onclick="comprobar()">
+		
+		
+		</nav>
+      </section>
+    </div>
+
+    <div id="navigation">
+      <section id=games>
+
+        <nav>
+          <a name="Asteroides" href="Asteroides/index.html">
+            <img src="imagenes/brick_breaker.png" id="games-selection" onclick="contadorJuegos()">
+          </a>
+          <a name="Memoria" href="Memoria/index.html">
+            <img src="imagenes/brick_breaker.png" id="games-selection" onclick="contadorJuegos()">
+          </a>
+		  <a name="Snake" href="Snake/index.html">
+            <img src="imagenes/brick_breaker.png" id="games-selection" onclick="contadorJuegos()">
+          </a>
+        </nav>
+      </section>
+    </div>
+
+  </div>
+<script src="main.js"></script>
+</body>
+</html>
