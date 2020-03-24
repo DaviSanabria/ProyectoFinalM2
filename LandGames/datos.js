@@ -1,9 +1,13 @@
+var i = parseInt(localStorage.getItem("EnCuenta"), 10);
+	if (i == 1){
+	document.getElementById('menUsuario').style.display = 'none';
+	}
+
+
+
 function guardar_datos(){ 
 
-	let nombre = document.getElementById("texto").value;
-	let edad = document.getElementById("edad").value;
-	let correo = document.getElementById("correo").value;
-	let contrasena = document.getElementById("pass").value;
+	
 	/*let persona = {
 		nombre: "jose",
 		edad: 19,
@@ -11,11 +15,34 @@ function guardar_datos(){
 
 	};
 
-	let nombre = "juanda";
+	let nombre = "david";
 	*/
+const person = {
+     nombre : document.getElementById("nombre").value,
+	 contrasena : document.getElementById("contrasena").value,
+}
+var nombre= getNombre(JSON.stringify(person));
 
-	localStorage.setItem("nombre", nombre);
-	localStorage.setItem("edad", edad);
-	localStorage.setItem("correo", correo);
-	localStorage.setItem("contrasena", contrasena);
-};
+window.localStorage.setItem("EnCuenta","1");
+window.localStorage.setItem("user", JSON.stringify(person));
+document.getElementById('menUsuario').style.display = 'none';
+	
+}
+function getNombre( person ){
+	
+	
+}
+
+
+function ocultar(){
+	document.getElementById('menUsuario').style.display = 'none';
+	
+	
+}
+
+function mostrar(){
+		document.getElementById('menUsuario').style.display = 'block';
+
+}
+
+ 

@@ -19,14 +19,17 @@
           <p><img src="imagenes/Land.png" id="logo-land"></p>
 		    <P><br><img src="imagenes/games.png" id="logo-games"></p>
         </header>
-		<nav>
-		<input type="text" name="nombre" placeholder="Nombre" id="lbName">
-        <input type=password name="Contraseña" placeholder="Contraseña" id="lbPass">
-		<input type="submit" name="add" value="Registrarse" id="btnAg" onclick="agregar()">
-		<input type="submit" name="com" value="Iniciar" id="btnName" onclick="comprobar()">
+	<center id="menUsuario">
+	<form>
+		<div id="obj1">Nombre  <input type="text" name="nombre" id="nombre"><div>
 		
+        <div id="obj2">Contraseña <input type=password name="contraseña"  id="contrasena"><div>
 		
-		</nav>
+		<button id="boton1" type="button" onclick="guardar_datos()">guardar</button>
+		
+		<button id="boton2" type="button" onclick="ocultar()">Ocultar</button>
+	</form>
+		</center>
       </section>
     </div>
 
@@ -35,13 +38,13 @@
 
         <nav>
           <a name="Asteroides" href="Asteroides/index.html">
-            <img src="imagenes/brick_breaker.png" id="games-selection" onclick="contadorJuegos()">
+            <img src="imagenes/asteroides.png" id="games-selection" onclick="contadorJuegos(1)">
           </a>
           <a name="Memoria" href="Memoria/index.html">
-            <img src="imagenes/brick_breaker.png" id="games-selection" onclick="contadorJuegos()">
+            <img src="imagenes/memoria.png" id="games-selection" onclick="contadorJuegos(2)">
           </a>
 		  <a name="Snake" href="Snake/index.html">
-            <img src="imagenes/brick_breaker.png" id="games-selection" onclick="contadorJuegos()">
+            <img src="imagenes/Snake.png" id="games-selection" onclick="contadorJuegos(3)">
           </a>
         </nav>
       </section>
