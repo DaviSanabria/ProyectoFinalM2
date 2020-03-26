@@ -20,7 +20,7 @@ function guardar_datos(){
 				return this.nombre;
 		 },
 		 getContrasena: function(){
-			 return this.nombre;
+			 return this.contrasena;
 		 },
 
 		 
@@ -40,6 +40,7 @@ function guardar_datos(){
 	 
 	}
 
+
 	
 	var EnLinea ={
 		nombreJ: document.getElementById("nombre").value,
@@ -58,36 +59,87 @@ function guardar_datos(){
 	document.getElementById('bienvenido').style.display = 'block';
 	document.getElementById("Unombre").innerHTML = j;
 	}
+}
+function aJugador(a){
+	var e = {
+		getNombre: function(){
+				return this.nombre;
+		 },
+		 getContrasena: function(){
+			 return this.contrasena;
+		 },
 
+		 
+		 setPuntSmk: function(i){
+			 if (this.puntSnk < i)
+				 this.puntSnk = i;
+		 },
+		 setPuntAst: function(i){
+			 if (this.puntAst < i)
+				 this.puntAst = i;
+		 },
+		 
+		 setPuntMem: function(i){
+			 if (this.puntMem < i)
+				 this.puntMem = i;
+		 },
+	}
 
+	var i = Object.assign(a,e);
+	return i;
+}
+function aElinea(a){
+	var e = {
+		getNombreJ: function(){
+			return this.nombreJ;
+		},
+	}
 
-
-	
-
+	var i = Object.assign(a,e);
+	return i;
 }
 
 
 function login(){
 	var nombre = document.getElementById("nombre").value;
-	var contraseña = document.getElementById("contrasenia").value;
+	var contraseña = document.getElementById("contrasena").value;
+	if (localStorage.getItem(nombre) != null){
+		var i = aJugador(JSON.parse(localStorage.getItem(nombre)));
+		var com = i.getContrasena();
+		if(com == contraseña){
+			var EnLinea ={
+				nombreJ: document.getElementById("nombre").value,
+				getNombreJ: function(){
+					return this.nombreJ;
+				},
+			}
+			window.localStorage.setItem("EnLinea",JSON.stringify(EnLinea));
+			window.localStorage.setItem(nombre, JSON.stringify(i));
+			document.getElementById('menUsuario').style.display = 'none';
+			document.getElementById('bienvenido').style.display = 'block';
+			document.getElementById("Unombre").innerHTML = nombre;
 	
+		}else{
 		
+		}
+	}else{
+		alert("nombre de usuario no encontrado, registrese");
+	}
 
 }
 function obtenerNombre(person){
 	var name = person.getNombre();
 	return name;
 }
-
+function obtenerNombre(person){
+	var name = person.getNombre();
+	return name;
+}
 
 //function contador juegos(){
 //	
 //}
 
-
-function ocultar(){
-	document.getElementById('menUsuario').style.display = 'none';	
-}
 
 function desconectarse(){
 		window.localStorage.setItem("EnLinea",null);
@@ -96,14 +148,10 @@ function desconectarse(){
 }
 
 
+
 function ComprobanteOnline(){
-	var e = {
-		getNombreJ: function(){
-			return this.nombreJ;
-		},
-		
-	}
-	var i = Object.assign(JSON.parse(localStorage.getItem("EnLinea")), e);
+	try{
+	var i = aElinea(JSON.parse(localStorage.getItem("EnLinea")));
 	var scr = i.getNombreJ();
 		if (i != null){
 		
@@ -111,4 +159,8 @@ function ComprobanteOnline(){
 		document.getElementById('bienvenido').style.display = 'block';
 		document.getElementById("Unombre").innerHTML = scr;
 		}
+	}catch(w){}
 }
+
+
+
