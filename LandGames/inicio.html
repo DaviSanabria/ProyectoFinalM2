@@ -22,19 +22,28 @@
 	<div id="menUsuario">
 	<center >
 	<form>
-		<div id="obj1">Nombre  <input type="text" name="nombre" id="nombre"><div>
+		<div id="obj1">Nombre  <input type="text" name="nombre" id="nombre"></div>
 		
-        <div id="obj2">Contraseña <input type=password name="contraseña"  id="contrasena"><div>
+        <div id="obj2">Contraseña <input type=password name="contraseña"  id="contrasena"></div>
 		
-		<button id="boton1" type="button" onclick="guardar_datos()">guardar</button>
+		<button id="boton1" type="button" onclick="guardar_datos()">registrarse</button>
 		
-		<button id="boton2" type="button" onclick="ocultar()">Ocultar</button>
+		<button id="boton2" type="button" onclick="logearse()">iniciar</button>
 	</form>
 		</center>
-	<div>
+	</div>
+      </section>
+    
+	<div id="bienvenido" style="display:none">
+	<center >
+	<form>
+		<div id="obj1">Bienvenido  <a id="Unombre"></a></div>
+		<button id="boton2" type="button" onclick="desconectarse()">desconectarse</button>
+	</form>
+		</center>
+	</div>
       </section>
     </div>
-	
 	
     <div id="navigation">
       <section id=games>
@@ -56,6 +65,9 @@
   </div>
 </body>
 
-<script src="comprobanteOnline.js"></script>
+<script> 
+
+	ComprobanteOnline();
+</script>
 
 </html>
