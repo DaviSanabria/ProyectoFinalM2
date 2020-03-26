@@ -1,0 +1,102 @@
+body {
+  font-family: 'Brush Script MT';
+  text-align: center;
+  font-size: 18px;
+  background-color: #200c1c;
+}
+
+#contenedor {
+  width: 100%;
+  height: 100%;
+}
+
+#header {
+  width: 100%;
+  height: 450px;
+  background: url('imagenes/imagen_1.gif') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+#head {
+  background-size: cover;
+  color: #db4e12;
+  font-weight: bold;
+}
+
+#bienvenido{
+	color: #db4e12;
+  font-weight: bold;
+	font-size: xx-large;
+}
+#menUsuario{
+	color: #db4e12;
+  font-weight: bold;
+	font-size: x-large;
+}
+
+
+
+
+#navigation {
+  width: 100%;
+  height: 500px;
+  float: left;
+}
+
+#games {
+ height: 700px;
+  background: url('imagenes/imagen_3.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+#letra-j {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  top: 30px;
+}
+
+#games-selection {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  top: 100px;
+
+}
+
+#lateral {
+  width: 30%;
+  height: 500px;
+  float: right;
+
+}
+
+#right {
+  position: relative;
+  height: 500px;
+  background: url('imagenes/imagen_2.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+#estadistica {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  /*left: -5px;*/
+}
+
+
+
+
+
+#name, #lbName, #btnName {
+  color: #fe01fc;
+  position: relative;
+  top: 150px;
+}
