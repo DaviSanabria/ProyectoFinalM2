@@ -25,6 +25,16 @@ body {
   font-weight: bold;
 }
 
+#bienvenido{
+	color: #db4e12;
+  font-weight: bold;
+	font-size: xx-large;
+}
+#menUsuario{
+	color: #db4e12;
+  font-weight: bold;
+	font-size: x-large;
+}
 
 
 
