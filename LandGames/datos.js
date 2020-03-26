@@ -146,7 +146,7 @@ function login(){
 			document.getElementById("Unombre").innerHTML = nombre;
 	
 		}else{
-		
+			alert("contraseña incorrecta");
 		}
 	}else{
 		alert("nombre de usuario no encontrado, registrese");
