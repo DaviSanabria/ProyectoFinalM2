@@ -8,36 +8,26 @@ function guardar_datos(){
 
 	let nombre = "david";
 	*/
-	var person = {
+	var person = { //
 		nombre : document.getElementById("nombre").value,
 		contrasena : document.getElementById("contrasena").value,
-		puntAst : "",
-		puntSnk : "",
-		puntMem : "",
-	 
+		puntAst : 0,
 		
-		 getNombre: function(){
+		
+		 getNombre: function(){ 
 				return this.nombre;
 		 },
 		 getContrasena: function(){
 			 return this.contrasena;
 		 },
-
-		 
-		 setPuntSmk: function(i){
-			 if (this.puntSnk < i)
-				 this.puntSnk = i;
+		 getPuntAst: function(){
+			 return this.puntAst;
 		 },
-		 setPuntAst: function(i){
-			 if (this.puntAst < i)
-				 this.puntAst = i;
+		 setPuntAst: function(s){
+			 
+			 if(s > puntAst)
+				 this.puntAst=s;
 		 },
-		 
-		 setPuntMem: function(i){
-			 if (this.puntMem < i)
-				 this.puntMem = i;
-		 },
-	 
 	}
 
 
@@ -58,30 +48,26 @@ function guardar_datos(){
 	document.getElementById('menUsuario').style.display = 'none';
 	document.getElementById('bienvenido').style.display = 'block';
 	document.getElementById("Unombre").innerHTML = j;
+	//lineas para copiar
+		var puntAs = person.getPuntAst();
+		document.getElementById('asteroides').innerHTML = puntAs;
 	}
 }
 function aJugador(a){
 	var e = {
-		getNombre: function(){
+		getNombre: function(){ 
 				return this.nombre;
 		 },
 		 getContrasena: function(){
 			 return this.contrasena;
 		 },
-
-		 
-		 setPuntSmk: function(i){
-			 if (this.puntSnk < i)
-				 this.puntSnk = i;
+		 getPuntAst: function(){
+			 return this.puntAst;
 		 },
-		 setPuntAst: function(i){
-			 if (this.puntAst < i)
-				 this.puntAst = i;
-		 },
-		 
-		 setPuntMem: function(i){
-			 if (this.puntMem < i)
-				 this.puntMem = i;
+		 setPuntAst: function(s){
+			 
+			 if(s > puntAst)
+				 this.puntAst=s;
 		 },
 	}
 
@@ -131,10 +117,6 @@ function obtenerNombre(person){
 	var name = person.getNombre();
 	return name;
 }
-function obtenerNombre(person){
-	var name = person.getNombre();
-	return name;
-}
 
 //function contador juegos(){
 //	
@@ -150,7 +132,7 @@ function desconectarse(){
 
 
 function ComprobanteOnline(){
-	try{
+
 	var i = aElinea(JSON.parse(localStorage.getItem("EnLinea")));
 	var scr = i.getNombreJ();
 		if (i != null){
@@ -158,8 +140,12 @@ function ComprobanteOnline(){
 		document.getElementById('menUsuario').style.display = 'none';
 		document.getElementById('bienvenido').style.display = 'block';
 		document.getElementById("Unombre").innerHTML = scr;
+		//funciones para copiar
+		var play = aJugador(JSON.parse(localStorage.getItem(scr)));
+		var puntAs = play.getPuntAst();
+		document.getElementById('asteroides').innerHTML = puntAs;
 		}
-	}catch(w){}
+	
 }
 
 

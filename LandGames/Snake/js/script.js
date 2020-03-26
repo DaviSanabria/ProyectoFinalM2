@@ -101,5 +101,25 @@
         function fin() {
             alert('PERDISTE');
             window.clearInterval(tempo);
-			location.reload();
+			pararPuntaje();
+			
+			
         }
+		
+		function pararPuntaje(){
+				var puntAst = {
+		nombre : ,
+		contrasena : document.getElementById("contrasena").value,
+		 getNombre: function(){
+				return this.nombre;
+		 },
+		 getContrasena: function(){
+			 return this.contrasena;
+		 },
+	}
+				window.localStorage.getItem("EnLinea",JSON.stringify(EnLinea));
+
+			location.reload();
+		}
+		
+		

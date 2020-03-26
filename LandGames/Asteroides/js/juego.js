@@ -377,6 +377,7 @@ var context;
 var screenWidth;
 var screenHeight;
 var doublePI = Math.PI * 2;
+var puntaje = 10;
 
 //game vars
 
@@ -757,13 +758,13 @@ function checkBulletAsteroidCollisions()
             if(checkDistanceCollision(b, a))
             {
                 b.blacklisted = true;
-
+				
                 destroyAsteroid(a);
+				puntaje = puntaje + 35;
             }
         }
     }
 }
-
 function checkShipAsteroidCollisions()
 {
     var i = asteroids.length - 1;
@@ -776,11 +777,13 @@ function checkShipAsteroidCollisions()
         if(checkDistanceCollision(a, s))
         {
             if(s.idle) return;
-
+			
             s.idle = true;
+			
 
             generateShipExplosion();
             destroyAsteroid(a);
+			pararPuntaje();
         }
     }
 }
@@ -1036,4 +1039,62 @@ function resetAsteroids()
         var a = asteroids[i];
         a.blacklisted = true;
     }
+}
+
+//funciones que copiar
+function aElinea(a){
+	var e = {
+		getNombreJ: function(){
+			return this.nombreJ;
+		},
+	}
+
+	var i = Object.assign(a,e);
+	return i;
+}
+function aJugador(a){
+	var e = {
+		getNombre: function(){ 
+				return this.nombre;
+		 },
+		 getContrasena: function(){
+			 return this.contrasena;
+		 },
+		 getPuntAst: function(){
+			 return this.puntAst;
+		 },
+		 setPuntAst: function(s){
+			 
+			 if(s > this.puntAst)
+				 this.puntAst=s;
+		 },
+	}
+
+	var i = Object.assign(a,e);
+	return i;
+}
+
+
+function pararPuntaje(){
+			
+				var i = aElinea(JSON.parse(localStorage.getItem("EnLinea")));
+				var src = i.getNombreJ();
+
+		var puntAst = {
+					puntos :  puntaje,
+					jugador : src,
+					
+					
+					
+				}
+				alert(this.puntaje);
+						window.localStorage.setItem("PuntAst",JSON.stringify(puntAst));
+						
+						var i = aElinea(JSON.parse(localStorage.getItem("EnLinea")));
+						var scr = i.getNombreJ();
+						var e = aJugador(JSON.parse(localStorage.getItem(scr)));
+						e.setPuntAst(puntaje);
+						window.localStorage.setItem(src,JSON.stringify(e));
+						
+						location.reload();
 }
