@@ -1,4 +1,5 @@
  window.document.onkeydown = tecla;
+		var puntaje = 0;
         var posy = 0;
         var y = 20;
         var posx = 0;
@@ -83,6 +84,7 @@
         //FUNCION RANDOM--
         function Random() {
             cola = cola + 1;
+			puntaje = puntaje + 20;
             randomy = (Math.round(Math.random() * 24));
             randomx = (Math.round(Math.random() * 24));
             document.all.area.insertAdjacentHTML("BeforeEnd", "<div id=div" + cola + " style = 'position:absolute;width:20;height:20;top:" + randomy * 20 + ";left:" + randomx * 20 + ";background-color:black'></div>");
@@ -102,24 +104,65 @@
             alert('PERDISTE');
             window.clearInterval(tempo);
 			pararPuntaje();
-			
-			
         }
 		
-		function pararPuntaje(){
-				var puntAst = {
-		nombre : ,
-		contrasena : document.getElementById("contrasena").value,
-		 getNombre: function(){
+//funciones que copiar
+function aElinea(a){
+	var e = {
+		getNombreJ: function(){
+			return this.nombreJ;
+		},
+	}
+
+	var i = Object.assign(a,e);
+	return i;
+}
+function aJugador(a){
+	var e = {
+		getNombre: function(){ 
 				return this.nombre;
 		 },
 		 getContrasena: function(){
 			 return this.contrasena;
 		 },
+		 getPuntSnake: function(){
+			 return this.puntSnake;
+		 },
+		 setPuntSnake: function(s){
+			 
+			 if(s > this.puntSnake)
+				 this.puntSnake=s;
+		 },
 	}
-				window.localStorage.getItem("EnLinea",JSON.stringify(EnLinea));
 
-			location.reload();
-		}
+	var i = Object.assign(a,e);
+	return i;
+}
+
+
+function pararPuntaje(){
+			
+				var i = aElinea(JSON.parse(localStorage.getItem("EnLinea")));
+				var src = i.getNombreJ();
+
+		var puntSnake = {
+					puntos :  puntaje,
+					jugador : src,
+					
+					
+					
+				}
+				alert(this.puntaje);
+						window.localStorage.setItem("PuntSnake",JSON.stringify(puntSnake));
+						
+						var i = aElinea(JSON.parse(localStorage.getItem("EnLinea")));
+						var scr = i.getNombreJ();
+						var e = aJugador(JSON.parse(localStorage.getItem(scr)));
+						e.setPuntSnake(puntaje);
+						window.localStorage.setItem(src,JSON.stringify(e));
+						
+						location.reload();
+}
+		
 		
 		

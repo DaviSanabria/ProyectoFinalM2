@@ -12,6 +12,8 @@ function guardar_datos(){
 		nombre : document.getElementById("nombre").value,
 		contrasena : document.getElementById("contrasena").value,
 		puntAst : 0,
+		puntSnake : 0,
+		puntMem : 0,
 		
 		
 		 getNombre: function(){ 
@@ -27,6 +29,22 @@ function guardar_datos(){
 			 
 			 if(s > puntAst)
 				 this.puntAst=s;
+		 },
+		 getPuntSnake: function(){
+			 return this.puntSnake;
+		 },
+		 setPuntSnake: function(s){
+			 
+			 if(s > puntSnake)
+				 this.puntSnake=s;
+		 },
+		 getPuntMem: function(){
+			 return this.puntMem;
+		 },
+		 setPuntMem: function(s){
+			 
+			 if(s > puntMem)
+				 this.puntMem=s;
 		 },
 	}
 
@@ -51,6 +69,12 @@ function guardar_datos(){
 	//lineas para copiar
 		var puntAs = person.getPuntAst();
 		document.getElementById('asteroides').innerHTML = puntAs;
+		
+		var puntS = person.getPuntSnake();
+		document.getElementById('snake').innerHTML = puntS;
+		
+		var puntM = person.getPuntMem();
+		document.getElementById('memoria').innerHTML = puntM;
 	}
 }
 function aJugador(a){
@@ -68,6 +92,22 @@ function aJugador(a){
 			 
 			 if(s > puntAst)
 				 this.puntAst=s;
+		 },
+		 getPuntSnake: function(){
+			 return this.puntSnake;
+		 },
+		 setPuntSnake: function(s){
+			 
+			 if(s > puntSnake)
+				 this.puntSnake=s;
+		 },
+		 getPuntMem: function(){
+			 return this.puntMem;
+		 },
+		 setPuntMem: function(s){
+			 
+			 if(s > puntMem)
+				 this.puntMem=s;
 		 },
 	}
 
@@ -142,8 +182,15 @@ function ComprobanteOnline(){
 		document.getElementById("Unombre").innerHTML = scr;
 		//funciones para copiar
 		var play = aJugador(JSON.parse(localStorage.getItem(scr)));
+		
 		var puntAs = play.getPuntAst();
 		document.getElementById('asteroides').innerHTML = puntAs;
+		
+		var puntS = play.getPuntSnake();
+		document.getElementById('snake').innerHTML = puntS;
+		
+		var puntM = play.getPuntMem();
+		document.getElementById('memoria').innerHTML = puntM;
 		}
 	
 }

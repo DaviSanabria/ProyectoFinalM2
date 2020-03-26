@@ -13,6 +13,7 @@ var jugada1 = "";
 var jugada2 = "";
 var identificadorJ1 = "";
 var identificadorJ2 = "";
+var puntaje = 0;
 
 function iniciarJuego () {  
   var dato = document.getElementById("juego");
@@ -51,6 +52,7 @@ function girarCarta () {
       cartas[parseInt(identificadorJ2)].seleccion = true;
 
       colorCambio(identificadorJ2, "blue", jugada2);
+	  puntaje = puntaje +30;
       vaciar();
       comprobar();
     }else if(identificadorJ1 !== identificadorJ2){
@@ -59,6 +61,7 @@ function girarCarta () {
         colorCambio(self.identificadorJ1, "black", "?")
         colorCambio(self.identificadorJ2, "black", "?")
         vaciar()
+		puntaje = puntaje -10 ;
       },200); 
 
       colorCambio(identificadorJ2, "blue", jugada2);
@@ -96,6 +99,7 @@ function comprobar () {
 
   if(aciertos == 16){
     document.getElementById("juego").innerHTML = "GANASTE";
+	pararPuntaje();
   }
 }
 
@@ -108,3 +112,61 @@ function resetearJuego () {
                 colorCambio(i, 'black', '?');
             }
         };
+		
+//funciones que copiar
+function aElinea(a){
+	var e = {
+		getNombreJ: function(){
+			return this.nombreJ;
+		},
+	}
+
+	var i = Object.assign(a,e);
+	return i;
+}
+function aJugador(a){
+	var e = {
+		getNombre: function(){ 
+				return this.nombre;
+		 },
+		 getContrasena: function(){
+			 return this.contrasena;
+		 },
+		 getPuntMem: function(){
+			 return this.puntMem;
+		 },
+		 setPuntMem: function(s){
+			 
+			 if(s > this.puntMem)
+				 this.puntMem=s;
+		 },
+	}
+
+	var i = Object.assign(a,e);
+	return i;
+}
+
+
+function pararPuntaje(){
+			
+				var i = aElinea(JSON.parse(localStorage.getItem("EnLinea")));
+				var src = i.getNombreJ();
+
+		var puntMem = {
+					puntos :  puntaje,
+					jugador : src,
+					
+					
+					
+				}
+				alert(this.puntaje);
+						window.localStorage.setItem("PuntMem",JSON.stringify(puntMem));
+						
+						var i = aElinea(JSON.parse(localStorage.getItem("EnLinea")));
+						var scr = i.getNombreJ();
+						var e = aJugador(JSON.parse(localStorage.getItem(scr)));
+						e.setPuntMem(puntaje);
+						window.localStorage.setItem(src,JSON.stringify(e));
+						
+						location.reload();
+}
