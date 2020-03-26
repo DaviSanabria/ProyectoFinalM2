@@ -152,7 +152,7 @@ function pararPuntaje(){
 					
 					
 				}
-				alert(this.puntaje);
+				alert("Puntaje: "+this.puntaje);
 						window.localStorage.setItem("PuntSnake",JSON.stringify(puntSnake));
 						
 						var i = aElinea(JSON.parse(localStorage.getItem("EnLinea")));

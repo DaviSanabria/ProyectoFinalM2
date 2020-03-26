@@ -159,7 +159,7 @@ function pararPuntaje(){
 					
 					
 				}
-				alert(this.puntaje);
+				alert("puntos: "+this.puntaje);
 						window.localStorage.setItem("PuntMem",JSON.stringify(puntMem));
 						
 						var i = aElinea(JSON.parse(localStorage.getItem("EnLinea")));
